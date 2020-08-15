@@ -1,0 +1,149 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  outline-style: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  background: url("/img/back.png") no-repeat, #000;
+  background-size: auto 800px;
+  background-position: left top;
+  overflow-x: hidden;
+  margin: auto;
+  height: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto Slab", serif, "Baloo Tamma 2", cursive;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.wrapper {
+  height: 100%;
+  padding-bottom: 33px;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.header__box {
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__menu {
+  max-width: 300px;
+  width: 100%;
+}
+
+.header__sign-in {
+  display: flex;
+  align-items: center;
+}
+
+.header__sign-in .line {
+  height: 20px;
+  margin: 0 10px;
+  border-left: 1px solid #999;
+}
+
+.header__sign-in-btn {
+  font-family: "Baloo Tamma 2";
+  color: white;
+  font-size: 17px;
+  line-height: 20px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.header__sign-in-btn:hover {
+  color: #999;
+}
+
+.header__btn-search {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.header__btn-search:hover {
+  color: #999;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer__box {
+  background: #000;
+  padding: 10px 20px;
+}
+
+.footer__rights {
+  font-family: "Baloo Tamma 2";
+  color: #999;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu__item {
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.menu__item:hover {
+  color: #999;
+}
+
+.menu .active {
+  color: #b88b58;
+}
+
+.index {
+  margin-top: 50px;
+}
+
+.index__box {
+  padding: 30px;
+  background: #fff;
+  border-radius: 30px;
+  text-align: center;
+}
+
