@@ -17,7 +17,6 @@ body
     height: 100%
     max-width: 100%
     display: flex
-    flex-direction: column
     font-family: 'Roboto Slab', serif, 'Baloo Tamma 2', cursive
 
 ol,
@@ -37,5 +36,11 @@ button
     cursor: pointer
 
 .wrapper
+    display: flex
+    flex-direction: column
     height: 100%
-    padding-bottom: 33px
+    .content
+        flex: 1 0 auto
+
+#app
+    width: 100%

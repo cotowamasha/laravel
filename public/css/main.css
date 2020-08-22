@@ -21,7 +21,6 @@ body {
   height: 100%;
   max-width: 100%;
   display: flex;
-  flex-direction: column;
   font-family: "Roboto Slab", serif, "Baloo Tamma 2", cursive;
 }
 
@@ -45,8 +44,17 @@ button {
 }
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  padding-bottom: 33px;
+}
+
+.wrapper .content {
+  flex: 1 0 auto;
+}
+
+#app {
+  width: 100%;
 }
 
 .container {
@@ -100,9 +108,8 @@ button {
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  flex: 0 0 auto;
+  margin-top: 20px;
 }
 
 .footer__box {
@@ -136,14 +143,307 @@ button {
   color: #b88b58;
 }
 
-.index {
-  margin-top: 50px;
+.index__box {
+  padding: 30px;
+  background: #f2f2f2;
+  border-radius: 30px;
+  text-align: center;
 }
 
-.index__box {
+.index__news {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.about {
+  font-family: "Baloo Tamma 2";
+}
+
+.about__box {
   padding: 30px;
   background: #fff;
   border-radius: 30px;
+}
+
+.about__logo {
+  font-size: 18px;
+  line-height: 20px;
   text-align: center;
+  margin-bottom: 10px;
+  color: #b88b58;
+  text-transform: uppercase;
+}
+
+.about__title--1 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.about__title--2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 16px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  max-width: 60%;
+}
+
+.about__text {
+  font-family: "Roboto Slab";
+  font-size: 16px;
+  line-height: 30px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  max-width: 60%;
+  padding-left: 30px;
+}
+
+.about__text span {
+  border-bottom: 1px solid #b88b58;
+}
+
+.contacts__map {
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.contacts__line {
+  width: 100%;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #000;
+}
+
+.contacts__media {
+  display: flex;
+  align-items: center;
+}
+
+.contacts__media .line {
+  height: 20px;
+  border-right: 1px solid;
+  margin: 0 20px;
+}
+
+.contacts__media .fa-facebook-square {
+  color: #304591;
+}
+
+.contacts__media .fa-vk {
+  color: #527397;
+}
+
+.contacts__media .fa-odnoklassniki {
+  color: #eb722e;
+}
+
+.contacts__media .fa-twitter {
+  color: #31adf4;
+}
+
+.contacts__media .fa-telegram {
+  color: #2ba5e0;
+}
+
+.contacts__media .fab:hover {
+  opacity: 0.5;
+}
+
+.error {
+  height: 100%;
+  width: 100%;
+  background: #999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error a {
+  margin-left: 10px;
+}
+
+.category__box {
+  padding: 30px;
+  background: #f2f2f2;
+  border-radius: 30px;
+}
+
+.category__title {
+  padding: 30px;
+  background: #f2f2f2;
+  border-radius: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.category__title span {
+  font-family: "Baloo Tamma 2", cursive;
+  color: #b88b58;
+}
+
+.single__title {
+  margin-bottom: 30px;
+  font-weight: 800;
+  font-family: "Baloo Tamma 2", cursive;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.single__content {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 20px;
+}
+
+.single .empty {
+  font-family: "Baloo Tamma 2", cursive;
+  font-size: 20px;
+}
+
+.news {
+  width: 350px;
+  height: 400px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #e1e1e1;
+  cursor: pointer;
+}
+
+.news__img {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 200px;
+  background-repeat: no-repeat !important;
+  background-size: 100% auto !important;
+}
+
+.news__content {
+  padding: 10px;
+}
+
+.news__category {
+  color: #b88b58;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: "Baloo Tamma 2";
+  font-size: 13px;
+  line-height: 18px;
+  margin-bottom: 14px;
+}
+
+.news__title {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #000;
+}
+
+.news__text {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+  color: #000;
+}
+
+.modal {
+  max-width: 570px;
+  width: 100%;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0px 10px 20px rgba(34, 98, 170, 0.3);
+  border-radius: 4px;
+  padding: 40px 50px;
+  position: relative;
+}
+
+.modal__bg {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 502;
+  overflow: hidden;
+  position: fixed;
+  background: #0b0b0b;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.modal__container {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 0 8px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.modal__container:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.modal__content {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  text-align: left;
+  z-index: 505;
+  width: 100%;
+}
+
+.search__box {
+  padding: 30px;
+  background: #f2f2f2;
+  border-radius: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.search__input {
+  width: 100%;
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 70px;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 30px;
+}
+
+.search__categories {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.search__categories a {
+  font-family: "Baloo Tamma 2", cursive;
+  color: #000;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+.search__categories a:hover {
+  color: #999;
 }
 
