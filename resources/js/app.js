@@ -1,17 +1,30 @@
-// require('./bootstrap');
 window.Vue = require('vue')
 
-import VueRouter from 'vue-router';
-import router from './router';
-import defaultLayout from './layouts/default';
+import store from './store'
 
-
-Vue.use(VueRouter);
+let HeaderPart = require('./components/layout/header')
+let FooterPart = require('./components/layout/footer')
+let IndexPage = require('./pages/index')
+let AboutPage = require('./pages/about')
+let ContactsPage = require('./pages/contacts')
+let ErrorPage = require('./pages/error')
+let SearchModal = require('./components/modals/search')
+let CategoryPage = require('./pages/category')
+let SinglePage = require('./pages/single')
 
 const app = new Vue({
     el: '#app',
-    render: h => h(defaultLayout),
-    router
+    store,
+    components: {
+        HeaderPart: h => h(HeaderPart),
+        FooterPart: h => h(FooterPart),
+        IndexPage: h => h(IndexPage),
+        AboutPage: h => h(AboutPage),
+        ContactsPage: h => h(ContactsPage),
+        ErrorPage: h => h(ErrorPage),
+        SearchModal: h => h(SearchModal),
+        CategoryPage: h => h(CategoryPage),
+        SinglePage: h => h(SinglePage)
+    }
 });
-
 

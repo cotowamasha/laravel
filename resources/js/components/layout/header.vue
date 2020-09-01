@@ -2,24 +2,27 @@
     <div class="header">
         <div class="container">
             <div class="header__box">
-                <router-link to="/">
+                <a href="/">
                     <img src="/img/logo.png">
-                </router-link>
+                </a>
 
                 <div class="header__menu menu">
-                    <router-link
+                    <a
                         v-for="(item, i) of menu"
                         :key="i"
-                        :to="item.to"
+                        :href="item.to"
                     >
-                        <div :class="['menu__item', getRoute === item.to ? 'active' : '']">
+                        <div :class="['menu__item', route === item.to ? 'active' : '' ]">
                             {{ item.name }}
                         </div>
-                    </router-link>
+                    </a>
                 </div>
 
                 <div class="header__sign-in">
-                    <button class="header__btn-search">
+                    <button
+                        @click="openSearch()"
+                        class="header__btn-search"
+                    >
                         <i class="fas fa-search"></i>
                     </button>
                     <div class="line" />
@@ -33,8 +36,15 @@
 </template>
 
 <script>
+    import { mapMutations } from 'vuex'
 export default {
-  name: "Header",
+  name: "HeaderPart",
+    props: {
+      route: {
+          type: String,
+          default: '/'
+      }
+    },
   data () {
     return {
         menu: [
@@ -44,11 +54,19 @@ export default {
         ]
     }
   },
-  computed: {
-      getRoute () {
-          return this.$route.path;
+    methods: {
+      ...mapMutations('layout', ['CHANGE_STATE']),
+
+      openSearch () {
+          this.CHANGE_STATE({
+              type: 'search',
+              data: {
+                  bg: true,
+                  box: true
+              }
+          })
       }
-  }
+    }
 }
 </script>
 
