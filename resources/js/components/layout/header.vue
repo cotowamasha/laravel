@@ -3,10 +3,10 @@
         <div class="container">
             <div class="header__box">
                 <a href="/">
-                    <img src="/img/logo.png">
+                    <img src="/img/logo-sm.png">
                 </a>
 
-                <div class="header__menu menu">
+                <nav class="header__menu menu">
                     <a
                         v-for="(item, i) of menu"
                         :key="i"
@@ -16,7 +16,7 @@
                             {{ item.name }}
                         </div>
                     </a>
-                </div>
+                </nav>
 
                 <div class="header__sign-in">
                     <button
@@ -50,7 +50,8 @@ export default {
         menu: [
             { name: 'News', to: '/' },
             { name: 'About', to: '/about' },
-            { name: 'Contacts', to: '/contacts' }
+            { name: 'Contacts', to: '/contacts' },
+            { name: 'Add A Post', to: '/create' }
         ]
     }
   },

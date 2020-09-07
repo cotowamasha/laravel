@@ -15,6 +15,11 @@ class IndexController extends Controller
     }
 
     public function show ($id) {
-        return view('single', ['route' => '/'])->with('newsSingle', News::getNewsById($id));
+        foreach (News::getNews() as $itemId => $item) {
+            if ($itemId == $id) {
+                return view('single', ['route' => '/'])->with('newsSingle', News::getNewsById($id));
+            }
+        }
+        return view('error');
     }
 }
