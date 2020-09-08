@@ -389,6 +389,12 @@ button {
   border-radius: 30px;
 }
 
+.create__ok {
+  text-align: center;
+  margin-bottom: 30px;
+  color: lightgreen;
+}
+
 .form-add {
   width: 50%;
   margin: 0 auto;

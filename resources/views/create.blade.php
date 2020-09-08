@@ -4,7 +4,15 @@
     <div class="create">
         <div class="container">
             <div class="create__box">
+
+                @if ($success)
+                    <p class="create__ok">
+                        {{ $success }}
+                    </p>
+                @endif
+
                 <form
+                    enctype="multipart/form-data"
                     class="form-add"
                     method="post"
                     action="/create"
@@ -27,7 +35,7 @@
                         class="form-add__select"
                     >
                         @foreach($categories as $item)
-                            <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
                     <p class="form-add__text">
@@ -39,6 +47,10 @@
                         class="form-add__input"
                         required
                     ></textarea>
+                    <input
+                        type="file"
+                        name="img"
+                    >
                     <button class="form-add__btn">
                         Create
                     </button>

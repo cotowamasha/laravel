@@ -1,5 +1,5 @@
 <template>
-    <a :href="`/news/${id}`">
+    <a :href="`/news/${item.id}`">
         <div class="news">
             <div
                 v-if="!item.img"
@@ -41,10 +41,6 @@ export default {
         category: {
             type: String,
             default: ''
-        },
-        id: {
-            type: String,
-            default: 1
         }
     },
     methods: {

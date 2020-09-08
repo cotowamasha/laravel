@@ -7,7 +7,6 @@
                       v-for="(item, i) in news"
                       :key="i"
                       :item="item"
-                      :id="i"
                       :categories="categories"
                   />
               </div>

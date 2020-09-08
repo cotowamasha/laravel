@@ -320,10 +320,6 @@ __webpack_require__.r(__webpack_exports__);
     category: {
       type: String,
       "default": ''
-    },
-    id: {
-      type: String,
-      "default": 1
     }
   },
   methods: {
@@ -645,7 +641,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_page_parts_index_news__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/page-parts/index/news */ "./resources/js/components/page-parts/index/news.vue");
-//
 //
 //
 //
@@ -1459,7 +1454,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("a", { attrs: { href: "/news/" + _vm.id } }, [
+  return _c("a", { attrs: { href: "/news/" + _vm.item.id } }, [
     _c("div", { staticClass: "news" }, [
       !_vm.item.img
         ? _c("div", {
@@ -1956,7 +1951,7 @@ var render = function() {
           _vm._l(_vm.news, function(item, i) {
             return _c("news", {
               key: i,
-              attrs: { item: item, id: i, categories: _vm.categories }
+              attrs: { item: item, categories: _vm.categories }
             })
           }),
           1

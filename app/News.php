@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 
 class News extends Model
 {
     public static function getNews () {
-        return json_decode(file_get_contents('news.json', FILE_USE_INCLUDE_PATH), true);
+        $news = File::get(storage_path() . '/news.json');
+        return json_decode($news, true);
     }
 
     public static function getNewsByCategory ($categoryId) {
