@@ -1,8 +1,8 @@
 <template>
   <div>
       <transition
-          name="fade"
           appear
+          name="fade"
           mode="out-in"
       >
           <div
@@ -12,8 +12,8 @@
       </transition>
 
       <transition
-          name="slide-top"
           appear
+          name="slide-top"
           mode="out-in"
       >
           <div

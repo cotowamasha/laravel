@@ -5,12 +5,24 @@
               Category <span>{{ category }}</span>
           </div>
           <div class="category__box">
-              <news
-                  v-for="(item, i) of newsByCategory"
-                  :key="i"
-                  :item="item"
-                  :category="category"
-              />
+              <div
+                  v-if="newsByCategory.length === 0"
+                  class=""
+              >
+                  no news.
+              </div>
+              <div
+                  v-else
+                  class="category__flex"
+              >
+                  <news
+                      v-for="(item, i) in newsByCategory"
+                      :key="i"
+                      :item="item"
+                      :id="i"
+                      :category="category"
+                  />
+              </div>
           </div>
       </div>
   </div>

@@ -11,6 +11,7 @@ let ErrorPage = require('./pages/error')
 let SearchModal = require('./components/modals/search')
 let CategoryPage = require('./pages/category')
 let SinglePage = require('./pages/single')
+let FormPage = require('./pages/form')
 
 const app = new Vue({
     el: '#app',
@@ -24,7 +25,8 @@ const app = new Vue({
         ErrorPage: h => h(ErrorPage),
         SearchModal: h => h(SearchModal),
         CategoryPage: h => h(CategoryPage),
-        SinglePage: h => h(SinglePage)
+        SinglePage: h => h(SinglePage),
+        FormPage: h => h(FormPage)
     }
 });
 

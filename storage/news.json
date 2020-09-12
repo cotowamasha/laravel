@@ -1,0 +1,30 @@
+{
+    "1": {
+        "img": "img1.png",
+        "title": "Unexamined toxins",
+        "content": "Activists and journalists are frequently poisoned in Russia but the authorities almost never investigate these attacks. Here are five notorious cases that preceded Alexey Navalny\u2019s recent hospitalization. ",
+        "category_id": 1
+    },
+    "2": {
+        "img": "img2.png",
+        "title": "Before he became violently ill",
+        "content": "Opposition politician Alexey Navalny has been hospitalized and possibly poisoned. Here\u2019s why he went to Siberia, where he was apparently attacked.",
+        "category_id": 2
+    },
+    "3": {
+        "img": "img3.png",
+        "title": "Beaten and disappeared",
+        "content": "Lobster demands to know what happened to special correspondent Maxim Solopov",
+        "category_id": 3
+    },
+    "4": {
+        "title": "It\u2019s possible that I created it myself",
+        "category_id": "2",
+        "content": "Chemical weapons experts explain who is capable of making \u2018Novichok\u2019 poisons and why their lethality makes them weapons to kill, not maim"
+    },
+    "5": {
+        "title": "Prigozhin\u2019s patriot",
+        "category_id": "1",
+        "content": "An oligarch-linked political strategist is running in Russia\u2019s regional elections despite being imprisoned in Libya"
+    }
+}

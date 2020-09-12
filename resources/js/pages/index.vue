@@ -4,7 +4,7 @@
           <div class="index__box">
               <div class="index__news">
                   <news
-                      v-for="(item, i) of news"
+                      v-for="(item, i) in news"
                       :key="i"
                       :item="item"
                       :categories="categories"
