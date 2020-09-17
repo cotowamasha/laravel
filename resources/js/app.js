@@ -12,6 +12,8 @@ let SearchModal = require('./components/modals/search')
 let CategoryPage = require('./pages/category')
 let SinglePage = require('./pages/single')
 let FormPage = require('./pages/form')
+let AdminPage = require('./pages/admin')
+let ChangePage = require('./pages/change')
 
 const app = new Vue({
     el: '#app',
@@ -26,7 +28,9 @@ const app = new Vue({
         SearchModal: h => h(SearchModal),
         CategoryPage: h => h(CategoryPage),
         SinglePage: h => h(SinglePage),
-        FormPage: h => h(FormPage)
+        FormPage: h => h(FormPage),
+        AdminPage: h => h(AdminPage),
+        ChangePage: h => h(ChangePage)
     }
 });
 

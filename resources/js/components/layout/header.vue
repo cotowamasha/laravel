@@ -51,7 +51,7 @@ export default {
             { name: 'News', to: '/' },
             { name: 'About', to: '/about' },
             { name: 'Contacts', to: '/contacts' },
-            { name: 'Add A Post', to: '/create' }
+            { name: 'Admin', to: '/admin' }
         ]
     }
   },

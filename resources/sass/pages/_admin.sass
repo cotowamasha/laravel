@@ -1,0 +1,62 @@
+.admin
+    &__box
+        padding: 30px
+        background: #f2f2f2
+        border-radius: 30px
+        text-align: center
+
+    &__link
+        display: block
+        color: $brown
+        transition: all .3s
+        margin-bottom: 30px
+        font-size: 25px
+        &:hover
+            color: $grey
+
+    &-news
+        padding: 20px
+        border-radius: 30px
+        border: 1px solid $grey
+        min-width: 350px
+        max-width: 350px
+        height: 250px
+        margin-bottom: 20px
+        position: relative
+        display: flex !important
+        align-items: center
+        justify-content: center
+        &__title
+            font-weight: 700
+            font-size: 18px
+            margin-bottom: 12px
+        &__content
+            text-align: left
+            font-size: 12px
+            display: -webkit-box
+            -webkit-line-clamp: 3
+            -webkit-box-orient: vertical
+            overflow: hidden
+        .delete
+            display: block
+            margin-left: auto
+            color: $black
+            width: fit-content
+            position: absolute
+            right: 20px
+            top: 15px
+        .change
+            margin: 0 auto
+            display: block
+            width: fit-content
+            background: $brown
+            border: 2px solid $brown
+            color: $white
+            border-radius: 5px
+            font-size: 14px
+            font-weight: 700
+            padding: 10px 20px
+            transition: all .3s
+            &:hover
+                background: $white
+                color: $brown
