@@ -20,6 +20,7 @@ class CreateNewsTable extends Migration
             $table->string('img')->nullable(true);
             $table->integer('category_id');
             $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

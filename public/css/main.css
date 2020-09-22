@@ -212,7 +212,6 @@ button {
 }
 
 .index__news a:nth-child(3n-1) {
-  display: block;
   margin: 0 12px 20px 12px;
 }
 
@@ -445,6 +444,102 @@ button {
   text-transform: capitalize;
 }
 
+.admin__box {
+  padding: 30px;
+  background: #f2f2f2;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.admin__link {
+  display: block;
+  color: #b88b58;
+  transition: all 0.3s;
+  margin-bottom: 30px;
+  font-size: 25px;
+}
+
+.admin__link:hover {
+  color: #999;
+}
+
+.admin-news {
+  padding: 20px;
+  border-radius: 30px;
+  border: 1px solid #999;
+  min-width: 350px;
+  max-width: 350px;
+  height: 250px;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-news__title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.admin-news__content {
+  text-align: left;
+  font-size: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.admin-news .delete {
+  display: block;
+  margin-left: auto;
+  color: #000;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+.admin-news .change {
+  margin: 0 auto;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: #b88b58;
+  border: 2px solid #b88b58;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 20px;
+  transition: all 0.3s;
+}
+
+.admin-news .change:hover {
+  background: #fff;
+  color: #b88b58;
+}
+
+.change__box {
+  padding: 30px;
+  background: #f2f2f2;
+  border-radius: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.change__box .admin-news:nth-child(3n-1) {
+  margin: 0 12px 20px 12px;
+}
+
 .news {
   width: 350px;
   height: 400px;
@@ -492,6 +587,10 @@ button {
   line-height: 20px;
   text-align: left;
   color: #000;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .modal {

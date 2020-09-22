@@ -10,7 +10,8 @@ class IndexController extends Controller
     public function index ($route) {
         $routes = [
             'about' => 'about',
-            'contacts' => 'contacts'
+            'contacts' => 'contacts',
+            'admin' => 'admin'
         ];
         foreach ($routes as $key => $val) {
             if ($key == $route) {

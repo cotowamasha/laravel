@@ -19,7 +19,7 @@
   import News from "../components/page-parts/index/news"
 
   export default {
-    name: 'IndexPage',
+    name: 'AdminPage',
       components: {
         News
       },

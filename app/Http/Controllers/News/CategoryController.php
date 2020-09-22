@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index ($categoryName) {
         $categoryId = 0;
 
-        $categories = DB::table('categories')->get();
+        $categories = Categories::all();
 
         foreach ($categories as $el) {
             if ($el->name == $categoryName) {
@@ -29,8 +29,7 @@ class CategoryController extends Controller
     }
 
     public function show ($categoryId) {
-        $news = DB::table('news')->where('category_id', (int)$categoryId);
-        dd($news);
+        $news = News::query()->where('category_id', $categoryId)->get();
         return $news;
     }
 }
