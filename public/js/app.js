@@ -469,7 +469,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       menu: [{
         name: 'Add a post',
-        to: '/create'
+        to: '/change/create'
       }, {
         name: 'Change posts',
         to: '/change'

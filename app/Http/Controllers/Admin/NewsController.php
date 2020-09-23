@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Categories;
+use App\Category;
 use App\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,16 +13,16 @@ class NewsController extends Controller
     public function index () {
         $categories = Categories::all();
         $news = News::all();
-        return view('change', ['route' => '/admin'], ['categories' => $categories])->with('news', $news);
+        return view('admin.change', ['route' => '/admin'], ['categories' => $categories])->with('news', $news);
     }
 
     public function destroy (News $news) {
         $news->delete();
-        return redirect('change');
+        return redirect('/change');
     }
 
     public function edit (News $news) {
-        return view('create', [
+        return view('admin.create', [
             'route' => '/admin',
             'news' => $news,
             'categories' => Categories::all(),
@@ -31,29 +32,60 @@ class NewsController extends Controller
 
     public function update (News $news, Request $request) {
         $data = $request->except('_token');
+
+        $this->validate($request, News::rules());
+        $result = $news->fill($data)->save();
+
         $news->fill($data)->save();
-        return redirect('/change');
+
+        if ($result) {
+            return redirect('/change');
+        } else {
+
+        }
     }
 
-    public function create (Request $request) {
-        $success = 0;
+    public function store(Request $request)
+    {
+        $news = new News();
 
-        if($request->isMethod('post')){
-            $news = new News();
+        $data = $request->except('_token');
 
-            $news->fill($request->except('_token'));
+        $this->validate($request, News::rules());
 
-            $news->save();
+        $result = $news->fill($data)->save();
 
-            $success = 'Good job, bro!';
-        }
+        $result = $news->fill($data)->save();
 
         $categories = Categories::all();
 
-        return view('create', [
+        if ($result) {
+            return view('admin.create', [
+                    'route' => '/admin',
+                    'categories' => $categories,
+                    'success' => 'Good job, bro!',
+                    'news' => $news
+                ]
+            );
+        } else {
+            return view('admin.create', [
+                    'route' => '/admin',
+                    'categories' => $categories,
+                    'error' => 'Oops! Something gone wrong.',
+                    'news' => $news
+                ]
+            );
+        }
+    }
+
+    public function create () {
+        $news = new News();
+        $categories = Categories::all();
+        return view('admin.create', [
                 'route' => '/admin',
                 'categories' => $categories,
-                'success' => $success
+                'success' => 0,
+                'news' => $news
             ]
         );
     }

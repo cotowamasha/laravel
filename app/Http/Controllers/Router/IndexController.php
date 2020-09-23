@@ -11,7 +11,7 @@ class IndexController extends Controller
         $routes = [
             'about' => 'about',
             'contacts' => 'contacts',
-            'admin' => 'admin'
+            'admin' => 'admin.admin'
         ];
         foreach ($routes as $key => $val) {
             if ($key == $route) {

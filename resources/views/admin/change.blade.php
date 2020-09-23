@@ -1,7 +1,7 @@
-@extends('welcome')
+@extends('layouts.welcome')
 
 @section('content')
-<index-page />
+    <change-page />
 @endsection
 
 
