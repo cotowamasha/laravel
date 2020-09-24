@@ -78,6 +78,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HeaderPart",
@@ -1409,9 +1411,11 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "line" }),
           _vm._v(" "),
-          _c("button", { staticClass: "header__sign-in-btn" }, [
-            _vm._v("\n                    Sign in\n                ")
-          ])
+          _c(
+            "a",
+            { staticClass: "header__sign-in-btn", attrs: { href: "/sign-in" } },
+            [_vm._v("\n                    Sign in\n                ")]
+          )
         ])
       ])
     ])

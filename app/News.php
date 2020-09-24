@@ -4,6 +4,7 @@ namespace App;
 
 use App\Rules\Ember;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class News extends Model
 {

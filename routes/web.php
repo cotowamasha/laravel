@@ -18,5 +18,11 @@ Route::group([
     Route::get('/news/{news}', 'IndexController@show');
     Route::get('/category/{categoryName}', 'CategoryController@index');
 });
+Route::group([
+    'namespace' => 'Auth'
+], function () {
+    Route::post('/sign-in', 'IndexController@index');
+    Route::post('/sign-up', 'IndexController@signUp');
+});
 
 Route::get('/{route}', 'Router\IndexController@index');

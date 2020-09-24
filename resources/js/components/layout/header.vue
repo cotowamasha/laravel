@@ -26,9 +26,11 @@
                         <i class="fas fa-search"></i>
                     </button>
                     <div class="line" />
-                    <button class="header__sign-in-btn">
+                    <a
+                        href="/sign-in"
+                        class="header__sign-in-btn">
                         Sign in
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
