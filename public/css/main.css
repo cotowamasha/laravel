@@ -131,6 +131,7 @@ button {
 .header__sign-in {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .header__sign-in .line {
@@ -159,6 +160,22 @@ button {
 
 .header__btn-search:hover {
   color: #999;
+}
+
+.header__logout {
+  top: 25px;
+  right: -30px;
+  position: absolute;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.header__logout a,
+.header__logout button {
+  font-family: "Baloo Tamma 2", cursive;
+  color: black;
+  font-size: 14px;
 }
 
 .footer {
@@ -405,6 +422,22 @@ button {
   margin: 0 auto;
 }
 
+.form-add__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.form-add__flex .form-add__btn {
+  margin-left: 0;
+}
+
+.form-add__link {
+  font-size: 12px;
+  line-height: 14px;
+  color: #999;
+}
+
 .form-add__text {
   font-size: 12px;
   line-height: 14px;
@@ -544,6 +577,26 @@ button {
 
 .change__box .admin-news:nth-child(3n-1) {
   margin: 0 12px 20px 12px;
+}
+
+.users__email {
+  font-size: 17px;
+  font-family: "Baloo Tamma 2", cursive;
+}
+
+.users__status {
+  font-size: 10px;
+  margin: 0;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.users__btn {
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: #b88b58;
+  color: #fff;
 }
 
 .news {

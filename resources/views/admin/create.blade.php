@@ -67,7 +67,7 @@
                         class="form-add__input"
                     >
                     @if ($errors->has('img'))
-                        <div class="error">
+                        <div class="error-text">
                             @foreach($errors->get('img') as $error)
                                 {{ $error }}
                             @endforeach

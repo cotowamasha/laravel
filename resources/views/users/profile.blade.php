@@ -3,8 +3,13 @@
 @section('content')
     <div class="container">
         <div class="create__box">
+            @if ($success)
+                <p class="create__ok">
+                    {{ $success }}
+                </p>
+            @endif
             <form
-                action="register"
+                action="/profile"
                 method="post"
                 class="form-add">
                 @csrf
@@ -14,7 +19,7 @@
                 <input
                     type="text"
                     name="name"
-                    placeholder="Marri"
+                    value="{{ $user->name }}"
                     class="form-add__input"
                 >
                 @if ($errors->has('name'))
@@ -30,7 +35,7 @@
                 <input
                     type="text"
                     name="email"
-                    placeholder="email@mail.ru"
+                    value="{{ $user->email }}"
                     class="form-add__input"
                 >
                 @if ($errors->has('email'))
@@ -41,7 +46,7 @@
                     </div>
                 @endif
                 <p class="form-add__text">
-                    Your password
+                    Your old password
                 </p>
                 <input
                     type="password"
@@ -57,16 +62,23 @@
                     </div>
                 @endif
                 <p class="form-add__text">
-                    Repeat password
+                    Your new password
                 </p>
                 <input
                     type="password"
-                    name="password_confirmation"
+                    name="password_new"
                     placeholder="***"
                     class="form-add__input"
                 >
+                @if ($errors->has('password_new'))
+                    <div class="error-text">
+                        @foreach($errors->get('password_new') as $error)
+                            {{ $error }}
+                        @endforeach
+                    </div>
+                @endif
                 <button class="form-add__btn">
-                    Sign up
+                    Update data
                 </button>
             </form>
         </div>
