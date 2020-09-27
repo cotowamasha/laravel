@@ -23,7 +23,7 @@
             menu: [
                 {
                     name: 'Add a post',
-                    to: '/create'
+                    to: '/change/create'
                 },
                 {
                     name: 'Change posts',

@@ -13,10 +13,10 @@ class IndexController extends Controller
     public function index () {
         $categories = Categories::all();
         $news = News::all();
-        return view('news', ['route' => '/'], ['categories' => $categories])->with('news', $news);
+        return view('news.news', ['route' => '/'], ['categories' => $categories])->with('news', $news);
     }
 
     public function show (News $news) {
-        return view('single', ['route' => '/'])->with('newsSingle', $news);
+        return view('news.single', ['route' => '/'])->with('newsSingle', $news);
     }
 }

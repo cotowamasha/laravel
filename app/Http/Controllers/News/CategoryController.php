@@ -11,21 +11,8 @@ use Illuminate\Support\Facades\DB;
 class CategoryController extends Controller
 {
     public function index ($categoryName) {
-        $categoryId = 0;
-
-        $categories = Categories::all();
-
-        foreach ($categories as $el) {
-            if ($el->name == $categoryName) {
-                $categoryId = $el->id;
-            }
-        }
-
-        if (!$categoryId) {
-            return view('error');
-        }
-
-        return view('category', ['route' => '/category'], ['category' => $categoryName])->with('newsByCategory', $this->show($categoryId));
+        $categoryId = Categories::query()->where('name', $categoryName)->get();
+        return view('category', ['route' => '/category'], ['category' => $categoryName])->with('newsByCategory', $this->show($categoryId[0]->id));
     }
 
     public function show ($categoryId) {

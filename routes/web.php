@@ -1,16 +1,22 @@
 <?php
+Route::group([
+    'prefix' => 'change',
+    'namespace' => 'Admin'
+], function () {
+    Route::get('/', 'NewsController@index');
+    Route::get('/destroy/{news}', 'NewsController@destroy');
+    Route::get('/edit/{news}', 'NewsController@edit');
+    Route::post('/update/{news}', 'NewsController@update');
+    Route::match(['get', 'post'],'/create', 'NewsController@create');
+    Route::match(['get', 'post'],'/store', 'NewsController@store');
+});
 
-Route::get('/', 'News\IndexController@index')->name('home');
-
-Route::match(['get', 'post'],'/create', 'Admin\NewsController@create');
-
-Route::get('/change', 'Admin\NewsController@index');
-Route::get('/change/destroy/{news}', 'Admin\NewsController@destroy');
-Route::get('/change/edit/{news}', 'Admin\NewsController@edit');
-Route::post('/change/update/{news}', 'Admin\NewsController@update');
-
-Route::get('/category/{categoryName}', 'News\CategoryController@index');
-
-Route::get('/news/{news}', 'News\IndexController@show');
+Route::group([
+    'namespace' => 'News'
+], function () {
+    Route::get('/', 'IndexController@index')->name('home');
+    Route::get('/news/{news}', 'IndexController@show');
+    Route::get('/category/{categoryName}', 'CategoryController@index');
+});
 
 Route::get('/{route}', 'Router\IndexController@index');

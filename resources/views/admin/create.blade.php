@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('layouts.welcome')
 
 @section('content')
     <div class="create">
@@ -15,18 +15,24 @@
                     enctype="multipart/form-data"
                     class="form-add"
                     method="post"
-                   @if (!$news)action="/create"@else action="/change/update/{{ $news->id }}"@endif
+                   @if (!$news->id)action="/change/store"@else action="/change/update/{{ $news->id }}"@endif
                 >
                     @csrf
                     <p class="form-add__text">
                         Title
                     </p>
+                    @if ($errors->has('title'))
+                        <div class="error-text">
+                            @foreach($errors->get('title') as $error)
+                                {{ $error }}
+                            @endforeach
+                        </div>
+                    @endif
                     <input
                         type="text"
                         name="title"
                         class="form-add__input"
                         value="{{ $news->title }}"
-                        required
                     >
                     <p class="form-add__text">
                         Category
@@ -47,13 +53,26 @@
                     <p class="form-add__text">
                         Content
                     </p>
+                    @if ($errors->has('content'))
+                        <div class="error-text">
+                            @foreach($errors->get('content') as $error)
+                                {{ $error }}
+                            @endforeach
+                        </div>
+                    @endif
                     <input
                         rows="7"
                         name="content"
                         value="{{ $news->content }}"
                         class="form-add__input"
-                        required
                     >
+                    @if ($errors->has('img'))
+                        <div class="error">
+                            @foreach($errors->get('img') as $error)
+                                {{ $error }}
+                            @endforeach
+                        </div>
+                    @endif
                     <input
                         type="file"
                         name="img"
