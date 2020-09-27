@@ -17,7 +17,11 @@
         <div id="app">
             <div class="wrapper">
                 <div class="content">
-                    <header-part :route="`<?= $route ?>`"></header-part>
+                    <header-part
+                        :route="`<?= $route ?>`"
+                        :auth="`{{ Auth::user() }}`"
+                        :token="`{{ csrf_token() }}`"
+                    ></header-part>
                     @yield('content')
                 </div>
                 <footer-part></footer-part>

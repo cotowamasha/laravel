@@ -28,6 +28,10 @@
                 {
                     name: 'Change posts',
                     to: '/change'
+                },
+                {
+                    name: 'Change users',
+                    to: '/change/users'
                 }
             ]
         }
