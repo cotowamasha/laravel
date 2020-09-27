@@ -78,6 +78,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HeaderPart",
@@ -85,6 +123,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     route: {
       type: String,
       "default": '/'
+    },
+    auth: {
+      type: String,
+      "default": ''
+    },
+    token: {
+      type: String,
+      "default": ''
     }
   },
   data: function data() {
@@ -100,9 +146,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         to: '/contacts'
       }, {
         name: 'Admin',
-        to: '/admin'
-      }]
+        to: '/admin',
+        admin: true
+      }],
+      user: '',
+      hoverBlock: false
     };
+  },
+  mounted: function mounted() {
+    this.authParse();
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])('layout', ['CHANGE_STATE'])), {}, {
     openSearch: function openSearch() {
@@ -113,6 +165,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           box: true
         }
       });
+    },
+    authParse: function authParse() {
+      if (this.auth) {
+        var auth = JSON.parse(this.auth);
+        this.user = auth;
+      }
     }
   })
 });
@@ -473,6 +531,9 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         name: 'Change posts',
         to: '/change'
+      }, {
+        name: 'Change users',
+        to: '/change/users'
       }]
     };
   }
@@ -1375,19 +1436,26 @@ var render = function() {
           { staticClass: "header__menu menu" },
           _vm._l(_vm.menu, function(item, i) {
             return _c("a", { key: i, attrs: { href: item.to } }, [
-              _c(
-                "div",
-                {
-                  class: ["menu__item", _vm.route === item.to ? "active" : ""]
-                },
-                [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(item.name) +
-                      "\n                    "
+              (i === 3
+              ? _vm.user.is_admin
+              : true)
+                ? _c(
+                    "div",
+                    {
+                      class: [
+                        "menu__item",
+                        _vm.route === item.to ? "active" : ""
+                      ]
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.name) +
+                          "\n                    "
+                      )
+                    ]
                   )
-                ]
-              )
+                : _vm._e()
             ])
           }),
           0
@@ -1409,9 +1477,68 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "line" }),
           _vm._v(" "),
-          _c("button", { staticClass: "header__sign-in-btn" }, [
-            _vm._v("\n                    Sign in\n                ")
-          ])
+          !_vm.auth
+            ? _c(
+                "a",
+                {
+                  staticClass: "header__sign-in-btn",
+                  attrs: { href: "/sign-in" }
+                },
+                [_vm._v("\n                    Sign in\n                ")]
+              )
+            : _c(
+                "a",
+                {
+                  staticClass: "header__sign-in-btn",
+                  attrs: { href: "/profile" },
+                  on: {
+                    mouseenter: function($event) {
+                      _vm.hoverBlock = true
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.user.name) +
+                      "\n                "
+                  )
+                ]
+              ),
+          _vm._v(" "),
+          _vm.auth && _vm.hoverBlock
+            ? _c(
+                "div",
+                {
+                  staticClass: "header__logout",
+                  on: {
+                    mouseleave: function($event) {
+                      _vm.hoverBlock = false
+                    }
+                  }
+                },
+                [
+                  _c("form", { attrs: { action: "/logout", method: "post" } }, [
+                    _c("a", { attrs: { href: "/profile" } }, [
+                      _vm._v(
+                        "\n                            your profile\n                        "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: { type: "hidden", name: "_token" },
+                      domProps: { value: _vm.token }
+                    }),
+                    _vm._v(" "),
+                    _c("button", [
+                      _vm._v(
+                        "\n                            logout\n                        "
+                      )
+                    ])
+                  ])
+                ]
+              )
+            : _vm._e()
         ])
       ])
     ])

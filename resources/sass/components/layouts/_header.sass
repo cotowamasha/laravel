@@ -12,6 +12,7 @@
     &__sign-in
         display: flex
         align-items: center
+        position: relative
         .line
             height: 20px
             margin: 0 10px
@@ -31,4 +32,15 @@
         transition: color 0.3s
         &:hover
             color: $grey
+    &__logout
+        top: 25px
+        right: -30px
+        position: absolute
+        background: $white
+        padding: 20px
+        border-radius: 10px
+        a, button
+            font-family: "Baloo Tamma 2", cursive
+            color: black
+            font-size: 14px
 
