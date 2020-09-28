@@ -21,9 +21,9 @@ class UsersController extends Controller
 
     public function update (User $user) {
         if ($user->is_admin) {
-            $user->is_admin = 0;
+            $user->is_admin = !$user->is_admin;
         } else {
-            $user->is_admin = 1;
+            $user->is_admin = !$user->is_admin;
         }
 
         $user->save();

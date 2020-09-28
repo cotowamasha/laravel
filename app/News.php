@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 
 class News extends Model
 {
-    protected $fillable = ['title', 'content', 'img', 'category_id'];
+    protected $fillable = ['title', 'content', 'img', 'category_id', 'resource_link'];
 
     public static function rules()
     {

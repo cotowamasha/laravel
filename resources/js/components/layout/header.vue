@@ -44,6 +44,11 @@
                         {{ user.name }}
                     </a>
                     <div
+                        class="header__avatar"
+                        v-if="user.avatar"
+                        :style="`background: url(${user.avatar})no-repeat`"
+                    />
+                    <div
                         v-if="auth && hoverBlock"
                         @mouseleave="hoverBlock = false"
                         class="header__logout"
@@ -105,6 +110,7 @@ export default {
       },
     mounted() {
       this.authParse()
+        console.log(this.user)
     },
     methods: {
       ...mapMutations('layout', ['CHANGE_STATE']),

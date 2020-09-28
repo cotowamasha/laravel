@@ -45,6 +45,14 @@
                     </div>
                 </div>
             </form>
+            <div class="socials">
+                <p class="socials__text">
+                    Sign in with:
+                </p>
+                <a href="/auth/vk">
+                    <i class="fab fa-vk"></i>
+                </a>
+            </div>
         </div>
     </div>
 @endsection

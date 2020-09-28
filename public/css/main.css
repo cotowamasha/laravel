@@ -178,6 +178,20 @@ button {
   font-size: 14px;
 }
 
+.header__logout form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header__avatar {
+  width: 40px;
+  height: 40px;
+  background-size: 40px auto !important;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
 .footer {
   flex: 0 0 auto;
   margin-top: 20px;
@@ -481,6 +495,21 @@ button {
   border-radius: 30px;
   font-family: "Baloo Tamma 2", cursive;
   text-transform: capitalize;
+}
+
+.socials {
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.socials__text {
+  font-family: "Baloo Tamma 2", cursive;
+  margin-bottom: 3px;
+}
+
+.socials a {
+  color: #527397;
 }
 
 .admin__box {
