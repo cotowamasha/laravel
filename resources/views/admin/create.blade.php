@@ -60,12 +60,20 @@
                             @endforeach
                         </div>
                     @endif
-                    <input
-                        rows="7"
+                    <textarea
+                        id="my-editor"
                         name="content"
-                        value="{{ $news->content }}"
+                        rows="5"
                         class="form-add__input"
                     >
+                        {!! $news->content !!}
+                    </textarea>
+{{--                    <input--}}
+{{--                        rows="7"--}}
+{{--                        name="content"--}}
+{{--                        value="{{ $news->content }}"--}}
+{{--                        class="form-add__input"--}}
+{{--                    >--}}
                     @if ($errors->has('img'))
                         <div class="error-text">
                             @foreach($errors->get('img') as $error)
