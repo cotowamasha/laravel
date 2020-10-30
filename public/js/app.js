@@ -160,7 +160,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {
     this.authParse();
-    console.log(this.user);
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])('layout', ['CHANGE_STATE'])), {}, {
     openSearch: function openSearch() {

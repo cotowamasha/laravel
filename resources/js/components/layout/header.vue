@@ -110,7 +110,6 @@ export default {
       },
     mounted() {
       this.authParse()
-        console.log(this.user)
     },
     methods: {
       ...mapMutations('layout', ['CHANGE_STATE']),

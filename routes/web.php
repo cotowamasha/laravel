@@ -2,6 +2,10 @@
 
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'is_admin', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
 Route::group([
     'prefix' => 'change',
     'namespace' => 'Admin',
