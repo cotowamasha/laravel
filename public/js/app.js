@@ -116,6 +116,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HeaderPart",
@@ -155,6 +160,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   mounted: function mounted() {
     this.authParse();
+    console.log(this.user);
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])('layout', ['CHANGE_STATE'])), {}, {
     openSearch: function openSearch() {
@@ -534,6 +540,9 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         name: 'Change users',
         to: '/change/users'
+      }, {
+        name: 'Parse news',
+        to: '/change/parser'
       }]
     };
   }
@@ -1506,6 +1515,13 @@ var render = function() {
                 ]
               ),
           _vm._v(" "),
+          _vm.user.avatar
+            ? _c("div", {
+                staticClass: "header__avatar",
+                style: "background: url(" + _vm.user.avatar + ")no-repeat"
+              })
+            : _vm._e(),
+          _vm._v(" "),
           _vm.auth && _vm.hoverBlock
             ? _c(
                 "div",
@@ -1763,45 +1779,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("a", { attrs: { href: "/news/" + _vm.item.id } }, [
-    _c("div", { staticClass: "news" }, [
-      !_vm.item.img
-        ? _c("div", {
-            staticClass: "news__img",
-            style: "background: url('/img/news/empty.png')"
-          })
-        : _c("div", {
-            staticClass: "news__img",
-            style: "background: url('/img/news/" + _vm.item.img + "')"
-          }),
-      _vm._v(" "),
-      _c("div", { staticClass: "news__content" }, [
-        _c("div", { staticClass: "news__category" }, [
-          _vm._v(
-            "\n                " +
-              _vm._s(
-                _vm.category === ""
-                  ? _vm.categoryName(_vm.item.category_id)
-                  : _vm.category
-              ) +
-              "\n            "
-          )
-        ]),
+  return _c(
+    "a",
+    {
+      attrs: {
+        href: _vm.item.resource_link
+          ? "" + _vm.item.resource_link
+          : "/news/" + _vm.item.id
+      }
+    },
+    [
+      _c("div", { staticClass: "news" }, [
+        !_vm.item.img
+          ? _c("div", {
+              staticClass: "news__img",
+              style: "background: url('/img/news/empty.png')"
+            })
+          : _c("div", {
+              staticClass: "news__img",
+              style: "background: url('/img/news/" + _vm.item.img + "')"
+            }),
         _vm._v(" "),
-        _c("div", { staticClass: "news__title" }, [
-          _vm._v(
-            "\n                " + _vm._s(_vm.item.title) + "\n            "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "news__text" }, [
-          _vm._v(
-            "\n                " + _vm._s(_vm.item.content) + "\n            "
-          )
+        _c("div", { staticClass: "news__content" }, [
+          _c("div", { staticClass: "news__category" }, [
+            _vm._v(
+              "\n                " +
+                _vm._s(
+                  _vm.category === ""
+                    ? _vm.categoryName(_vm.item.category_id)
+                    : _vm.category
+                ) +
+                "\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "news__title" }, [
+            _vm._v(
+              "\n                " + _vm._s(_vm.item.title) + "\n            "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "news__text" }, [
+            _vm._v(
+              "\n                " + _vm._s(_vm.item.content) + "\n            "
+            )
+          ])
         ])
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

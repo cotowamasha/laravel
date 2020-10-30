@@ -11,8 +11,9 @@ use Illuminate\Support\Facades\DB;
 class CategoryController extends Controller
 {
     public function index ($categoryName) {
-        $categoryId = Categories::query()->where('name', $categoryName)->get();
-        return view('category', ['route' => '/category'], ['category' => $categoryName])->with('newsByCategory', $this->show($categoryId[0]->id));
+        $categoryId = Categories::query()->where('name', $categoryName)->first();
+
+        return view('category', ['route' => '/category'], ['category' => $categoryName])->with('newsByCategory', $this->show($categoryId->id));
     }
 
     public function show ($categoryId) {

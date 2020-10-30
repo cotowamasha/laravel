@@ -16,6 +16,15 @@ class NewsController extends Controller
         return view('admin.change', ['route' => '/admin'], ['categories' => $categories])->with('news', $news);
     }
 
+    protected function saveImage(Request $request) {
+        $name = null;
+        if ($request->file('img')) {
+            $path = \Storage::putFile('public/img', $request->file('img'));
+            $name = \Storage::url($path);
+        }
+        return $name;
+    }
+
     public function destroy (News $news) {
         $news->delete();
         return redirect('/change');
@@ -32,7 +41,7 @@ class NewsController extends Controller
 
     public function update (News $news, Request $request) {
         $data = $request->except('_token');
-
+        $news->img = $this->saveImage($request);
         $this->validate($request, News::rules());
         $result = $news->fill($data)->save();
 
@@ -51,18 +60,16 @@ class NewsController extends Controller
 
         $data = $request->except('_token');
 
+        $news->img = $this->saveImage($request);
+
         $this->validate($request, News::rules());
 
         $result = $news->fill($data)->save();
 
-        $result = $news->fill($data)->save();
-
-        $categories = Categories::all();
-
         if ($result) {
             return view('admin.create', [
                     'route' => '/admin',
-                    'categories' => $categories,
+                    'categories' => Categories::all(),
                     'success' => 'Good job, bro!',
                     'news' => $news
                 ]
@@ -70,7 +77,7 @@ class NewsController extends Controller
         } else {
             return view('admin.create', [
                     'route' => '/admin',
-                    'categories' => $categories,
+                    'categories' => Categories::all(),
                     'error' => 'Oops! Something gone wrong.',
                     'news' => $news
                 ]

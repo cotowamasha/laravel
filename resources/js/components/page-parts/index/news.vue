@@ -1,5 +1,5 @@
 <template>
-    <a :href="`/news/${item.id}`">
+    <a :href="item.resource_link ? `${item.resource_link}` : `/news/${item.id}`">
         <div class="news">
             <div
                 v-if="!item.img"

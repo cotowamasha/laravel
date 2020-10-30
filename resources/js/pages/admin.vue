@@ -32,6 +32,10 @@
                 {
                     name: 'Change users',
                     to: '/change/users'
+                },
+                {
+                    name: 'Parse news',
+                    to: '/change/parser'
                 }
             ]
         }

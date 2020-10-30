@@ -15,11 +15,15 @@ Route::group([
     Route::match(['get', 'post'],'/store', 'NewsController@store');
     Route::get('/users', 'UsersController@index')->name('users');
     Route::get('/users/{user}', 'UsersController@update');
+    Route::get('/parser', 'ParserController@index')->name('parser');
 });
 
 Route::get('/admin', 'Admin\IndexController@index')->middleware(['auth', 'is_admin']);
 
 Route::match(['post', 'get'], '/profile', 'Users\ProfileController@update')->middleware('auth');
+
+Route::get('/auth/vk', 'LoginController@loginVK')->name('loginvk');
+Route::get('/auth/vk/response', 'LoginController@responseVK')->name('responsevk');
 
 Route::group([
     'namespace' => 'News'
